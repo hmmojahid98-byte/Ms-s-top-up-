@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MS S TOP UP</title>
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #10131c;
+  color: white;
+}
+
+header {
+  background: #191e2c;
+  padding: 25px 10px;
+  text-align: center;
+  border-bottom: 2px solid orange;
+}
+
+header h1 {
+  color: orange;
+  font-size: 30px;
+}
+
+header p {
+  margin-top: 8px;
+}
+
+.hero {
+  text-align: center;
+  padding: 40px 15px;
+  background: linear-gradient(135deg,#263653,#111522);
+}
+
+.hero h2 {
+  color: orange;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  line-height: 1.8;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  color: orange;
+  margin: 25px 0;
+}
+
+.package {
+  background: #202738;
+  padding: 22px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #39445c;
+}
+
+.package h3 {
+  margin-bottom: 12px;
+}
+
+.price {
+  color: #ffb000;
+  font-size: 23px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+button {
+  background: orange;
+  color: black;
+  border: none;
+  padding: 13px 25px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+form {
+  background: #202738;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+input, select {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #526078;
+  background: #111827;
+  color: white;
+  font-size: 16px;
+}
+
+form button {
+  width: 100%;
+  margin-top: 12px;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #191e2c;
+  color: #ccc;
+  line-height: 2;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>MS S TOP UP</h1>
+  <p>Free Fire Diamond Top Up</p>
+</header>
+
+<section class="hero">
+  <h2>WELCOME TO MS S TOP UP</h2>
+  <p>আপনার পছন্দের Free Fire Diamond Top Up করুন।</p>
+  <p>সহজ অর্ডার এবং কাস্টমার সাপোর্ট।</p>
+</section>
+
+<div class="container">
+
+<h2 class="title">💎 Diamond Packages</h2>
+
+<div class="package">
+  <h3>25 Diamonds</h3>
+  <p class="price">৳ 25</p>
+  <button onclick="choose('25 Diamonds')">Order Now</button>
+</div>
+
+<div class="package">
+  <h3>50 Diamonds</h3>
+  <p class="price">৳ 40</p>
+  <button onclick="choose('50 Diamonds')">Order Now</button>
+</div>
+
+<div class="package">
+  <h3>115 Diamonds</h3>
+  <p class="price">৳ 80</p>
+  <button onclick="choose('115 Diamonds')">Order Now</button>
+</div>
+
+<div class="package">
+  <h3>240 Diamonds</h3>
+  <p class="price">৳ 160</p>
+  <button onclick="choose('240 Diamonds')">Order Now</button>
+</div>
+
+<h2 class="title">🛒 Order Form</h2>
+
+<form onsubmit="sendOrder(event)">
+  <input
+    type="text"
+    id="player"
+    placeholder="Free Fire Player ID"
+    required
+  >
+
+  <select id="pack" required>
+    <option value="">Select Diamond Package</option>
+    <option>25 Diamonds</option>
+    <option>50 Diamonds</option>
+    <option>115 Diamonds</option>
+    <option>240 Diamonds</option>
+  </select>
+
+  <button type="submit">Submit Order</button>
+</form>
+
+</div>
+
+<footer>
+  <h3>MS S TOP UP</h3>
+  <p>Free Fire Diamond Top Up Website</p>
+  <p>Contact: Add your WhatsApp number</p>
+  <p>© 2026 MS S TOP UP</p>
+</footer>
+
+<script>
+function choose(name) {
+  document.getElementById("pack").value = name;
+  document.getElementById("player").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+function sendOrder(event) {
+  event.preventDefault();
+
+  const player = document.getElementById("player").value;
+  const pack = document.getElementById("pack").value;
+
+  alert(
+    "Demo Order Created!\n" +
+    "Player ID: " + player +
+    "\nPackage: " + pack
+  );
+}
+</script>
+
+</body>
+  </html>
+  
