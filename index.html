@@ -3,300 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MS S TOP UP - Free Fire Diamond Top Up</title>
+    <title>MS S TOP UP - Diamond Store</title>
+    <!-- Google Fonts for better typography -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Hind Siliguri', 'Poppins', sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
+
         body {
-            background-color: #f4f2f8;
-            color: #1f2937;
-            padding-bottom: 80px;
+            background-color: #f7f9fc;
+            color: #333;
+            padding-bottom: 80px; /* Space for bottom navigation */
         }
+
         /* Top Header */
-        .top-bar {
+        .header {
             background-color: #ffffff;
-            padding: 12px 15px;
+            padding: 12px 16px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            justify-content: space-between;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
+
         .brand {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-weight: 800;
-            font-size: 18px;
-            color: #4c1d95;
+            gap: 10px;
         }
-        .brand-logo {
-            background: linear-gradient(135deg, #6d28d9, #9333ea);
-            color: white;
-            padding: 5px 9px;
+
+        .brand img {
+            width: 35px;
+            height: 35px;
             border-radius: 8px;
-            font-size: 14px;
         }
-        .wallet-badge {
-            background-color: #f3e8ff;
-            color: #6b21a8;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 13px;
-            border: 1px solid #d8b4fe;
+
+        .brand-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #4a154b;
         }
-        /* Notice Bar */
-        .notice-bar {
-            background: linear-gradient(90deg, #581c87, #7e22ce);
-            color: #ffffff;
-            padding: 10px 15px;
-            font-size: 12.5px;
-            line-height: 1.5;
+
+        .header-right {
             display: flex;
-            align-items: flex-start;
-            gap: 8px;
+            align-items: center;
+            gap: 12px;
         }
-        /* Banner */
-        .container {
-            max-width: 550px;
-            margin: 0 auto;
-            padding: 12px;
-        }
-        .hero-banner {
-            background: linear-gradient(135deg, #4c1d95, #9333ea, #c026d3);
-            border-radius: 14px;
-            padding: 22px 15px;
-            color: white;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(107, 33, 168, 0.25);
-            margin-bottom: 18px;
-        }
-        .hero-banner h2 {
-            font-size: 20px;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .hero-banner p {
-            font-size: 13px;
-            opacity: 0.95;
-            background: rgba(0,0,0,0.25);
-            display: inline-block;
-            padding: 4px 12px;
+
+        .wallet-badge {
+            background-color: #f3ebf6;
+            color: #4a154b;
+            padding: 6px 12px;
             border-radius: 20px;
-            margin-top: 5px;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
-        /* Section Header */
-        .sec-header {
+
+        .profile-avatar {
+            width: 36px;
+            height: 36px;
+            background-color: #4a154b;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            border: 2px solid #fff;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        /* Notice Ticker */
+        .notice-bar {
+            background: linear-gradient(90deg, #4a154b, #6b236d);
+            color: white;
+            padding: 10px 16px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .notice-bar marquee {
+            font-weight: 500;
+        }
+
+        /* Container */
+        .container {
+            padding: 16px;
+        }
+
+        /* Banner Hero */
+        .hero-banner {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .hero-banner img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 16px;
-            font-weight: 800;
-            color: #111827;
-            margin: 15px 0 12px;
-            border-left: 4px solid #7e22ce;
-            padding-left: 8px;
         }
-        /* Packages Grid */
-        .pkg-grid {
+
+        .section-title::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 16px;
+            background-color: #4a154b;
+            border-radius: 2px;
+        }
+
+        /* Grid Layouts */
+        .grid-3 {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
-        .pkg-item {
-            background: #ffffff;
-            border: 1.5px solid #e5e7eb;
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        /* Product Cards */
+        .card {
+            background-color: white;
             border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            padding: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            position: relative;
+            border: 1px solid #f0f0f0;
+            transition: transform 0.2s;
+        }
+
+        .card:active {
+            transform: scale(0.98);
+        }
+
+        .badge {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            background-color: #ff4757;
+            color: white;
+            font-size: 9px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .card-img {
+            width: 100%;
+            height: auto;
+            max-height: 80px;
+            object-fit: contain;
+            margin-bottom: 8px;
+            border-radius: 6px;
+        }
+
+        .card-name {
+            font-size: 12px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-price {
+            font-size: 13px;
+            font-weight: 700;
+            color: #4a154b;
+        }
+
+        /* Price List Variant Card */
+        .price-item {
+            background-color: #ffffff;
+            border-radius: 10px;
             padding: 14px 10px;
             text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+            border: 1px solid #eaeaea;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
         }
-        .pkg-item.active {
-            border-color: #7e22ce;
-            background-color: #faf5ff;
-            box-shadow: 0 0 0 2px rgba(126, 34, 206, 0.2);
-        }
-        .pkg-name {
-            font-weight: 700;
-            font-size: 14.5px;
-            color: #1f2937;
-            margin-bottom: 5px;
-        }
-        .pkg-price {
-            font-weight: 800;
-            font-size: 15px;
-            color: #6b21a8;
-        }
-        /* Checkout Box */
-        .checkout-card {
-            background: #ffffff;
-            border-radius: 14px;
-            padding: 16px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-        }
-        .step-title {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 700;
-            font-size: 16px;
-            color: #4c1d95;
-            margin-bottom: 14px;
-        }
-        .step-badge {
-            background-color: #7e22ce;
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 13px;
-        }
-        .input-group {
-            margin-bottom: 12px;
-        }
-        .input-group label {
-            display: block;
+
+        .price-title {
             font-size: 13px;
             font-weight: 600;
-            color: #374151;
-            margin-bottom: 5px;
-        }
-        .input-group input {
-            width: 100%;
-            padding: 11px 12px;
-            border: 1.5px solid #d1d5db;
-            border-radius: 8px;
-            font-size: 14px;
-            outline: none;
-            background: #f9fafb;
-        }
-        .input-group input:focus {
-            border-color: #7e22ce;
-            background: #ffffff;
-        }
-        /* Payment Box */
-        .payment-box {
-            border: 1.5px solid #7e22ce;
-            background: #faf5ff;
-            border-radius: 10px;
-            padding: 12px;
-            margin-bottom: 14px;
-            text-align: center;
-        }
-        .payment-box p {
-            font-size: 13px;
-            color: #4b5563;
-            margin-bottom: 6px;
-        }
-        .nagad-row {
+            color: #444;
+            margin-bottom: 4px;
             display: flex;
+            align-items: center;
             justify-content: center;
-            align-items: center;
-            gap: 10px;
-            font-size: 17px;
-            font-weight: 800;
-            color: #e11d48;
+            gap: 4px;
         }
-        .copy-btn {
-            background: #7e22ce;
-            color: white;
-            border: none;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 12px;
-            cursor: pointer;
-        }
-        .buy-btn {
-            width: 100%;
-            background: linear-gradient(90deg, #6d28d9, #9333ea);
-            color: white;
-            border: none;
-            padding: 13px;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(126, 34, 206, 0.3);
-        }
-        .buy-btn:disabled {
-            background: #9ca3af;
-        }
-        .success-alert {
-            display: none;
-            background: #ecfdf5;
-            border: 1px solid #10b981;
-            color: #065f46;
-            padding: 14px;
-            border-radius: 10px;
-            margin-top: 12px;
-            font-size: 14px;
-            text-align: center;
-        }
-        /* Contact & Support Section */
-        .support-section {
-            text-align: center;
-            margin-top: 25px;
-        }
-        .support-section h3 {
-            font-size: 16px;
-            color: #111827;
-        }
-        .support-section p {
-            font-size: 12px;
-            color: #6b7280;
-            margin-bottom: 12px;
-        }
-        .support-btn {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            border-radius: 10px;
-            color: white;
-            font-weight: 700;
-            text-decoration: none;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-        .btn-wa { background-color: #22c55e; }
-        .btn-call { background-color: #374151; }
 
-        /* Tab Views */
-        .tab-content { display: none; }
-        .tab-content.active-tab { display: block; }
+        .price-title i {
+            color: #00a8ff;
+            font-size: 11px;
+        }
 
-        /* Orders History Card */
-        .order-history-item {
-            background: white;
-            padding: 14px;
-            border-radius: 12px;
-            margin-bottom: 10px;
-            border: 1px solid #e5e7eb;
+        .price-value {
+            font-size: 14px;
+            font-weight: 700;
+            color: #222;
+        }
+
+        /* Live Help Floating Button */
+        .help-btn {
+            position: fixed;
+            bottom: 85px;
+            right: 16px;
+            background-color: #25D366; /* WhatsApp Green Color */
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-        }
-        .status-badge {
-            background: #fef3c7;
-            color: #d97706;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            z-index: 999;
+            text-decoration: none;
         }
 
         /* Bottom Navigation Bar */
@@ -304,50 +269,97 @@
             position: fixed;
             bottom: 0;
             left: 0;
-            right: 0;
-            background: #ffffff;
+            width: 100%;
+            background-color: #ffffff;
             display: flex;
             justify-content: space-around;
             align-items: center;
             padding: 8px 0;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
-            z-index: 200;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.06);
+            z-index: 1000;
         }
+
         .nav-item {
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #7f8c8d;
+            text-decoration: none;
             font-size: 11px;
-            color: #6b7280;
-            cursor: pointer;
-            font-weight: 600;
+            font-weight: 500;
+            width: 18%;
         }
-        .nav-item.active {
-            color: #7e22ce;
-        }
-        .nav-icon {
+
+        .nav-item i {
             font-size: 18px;
-            display: block;
             margin-bottom: 2px;
         }
-        .center-plus {
-            background: linear-gradient(135deg, #6d28d9, #9333ea);
+
+        .nav-item.active {
+            color: #4a154b;
+            font-weight: 700;
+        }
+
+        /* Center Add Button */
+        .nav-item.center-add {
+            position: relative;
+            top: -15px;
+            background: linear-gradient(135deg, #4a154b, #8e44ad);
             color: white;
-            width: 46px;
-            height: 46px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 24px;
-            margin-top: -22px;
-            box-shadow: 0 4px 10px rgba(126, 34, 206, 0.4);
+            box-shadow: 0 4px 10px rgba(74, 21, 75, 0.3);
+        }
+
+        .nav-item.center-add i {
+            font-size: 22px;
+            margin: 0;
         }
     </style>
 </head>
 <body>
 
     <!-- Top Header -->
-    <div class="top-bar">
+    <div class="header">
         <div class="brand">
-            <span class="brand-logo">MS</span>
-            <span>MS S TOP UP</span>
+            <img src="https://placeholder.com" alt="Logo">
+            <div class="brand-name">MS S TOP UP</div>
         </div>
+        <div class="header-right">
+            <div class="wallet-badge">
+                <i class="fa-solid fa-wallet"></i> ৳২৭.০০
+            </div>
+            <div class="profile-avatar">Ms</div>
+        </div>
+    </div>
+
+    <!-- Ticker Notice with your Nagad number -->
+    <div class="notice-bar">
+        <i class="fa-solid fa-bullhorn"></i>
+        <marquee scrollamount="4">MS S TOP UP এ ১ সেকেন্ডে AI বট দিয়ে টপআপ কমপ্লিট করা হয়। আমাদের পার্সোনাল নগদ নম্বর: 01621459286 (সেন্ড মানি করবেন)। যেকোনো সমস্যায় হোয়াটসঅ্যাপ করুন।</marquee>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        
+        <!-- Banner Image Slider Placeholder -->
+        <div class="hero-banner">
+            <img src="https://placeholder.com" alt="Banner">
+        </div>
+
+        <!-- Section: Item Offers -->
+        <div class="section-title">SPECIAL ITEM</div>
+        <div class="grid-3">
+            <div class="card">
+                <span class="badge">অফার</span>
+                <img class="card-img" src="https://placeholder.com" alt="Offer">
+                <div class="card-name">Friday Offer</div>
+                <div class="card-price">৳745</div>
+            </div>
+            <div class="card">
+                <span class="badge">Popular</span>
+                <img class="card-img" src="https://placeholder.com" alt="Offer">
+                <div class="card-name">200 LIKE 7 TK</div>
+                
